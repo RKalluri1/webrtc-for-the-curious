@@ -94,6 +94,10 @@ a=rtpmap:96 VP8/90000
 * You have two Media Descriptions. One of type `audio` and one of type `video`.
 * Each of those has one attribute. This attribute configures details of the RTP pipeline, which is discussed in the "Media Communication" chapter.
 
+### SDP Explainer
+
+[This page](/explainer/index.html) allows you to cut-n-paste your SDP and gives an explanation of its contents.
+
 ## How *Session Description Protocol* and WebRTC work together
 
 The next piece of the puzzle is understanding _how_ WebRTC uses the Session Description Protocol.
