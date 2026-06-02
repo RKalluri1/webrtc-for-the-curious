@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDP Explainer</title>
+    <style>
+        body {
+            background-color:white;
+        }
+
+        #inner {
+            position: relative;
+            display: inline-block;
+        }
+
+        #outer {
+            display: flex;
+            gap: 30px;
+        }
+
+        #explanation {
+            position: sticky;
+            top: 5px;
+            border: 0px solid #ccc;
+            height: 0px;
+            white-space: pre-wrap;
+        }
+
+        #sdp-input {
+            resize:none;
+            text-align: left;
+            overflow: auto;
+            field-sizing: content;
+            width: 80ch;
+            min-height: 10lh;
+            background-color: transparent;
+            white-space: nowrap;
+            display: block;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid #ccc; /* The frame style */
+            pointer-events: none;      /* KEY: Click through to textarea */
+            border-radius: 1px;        /* Match textarea radius if any */
+            box-sizing: border-box;    /* Ensures border doesn't add size */            
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/json2html/3.3.2/json2html.min.js"></script>
+    <script type="module" src="controller.js"></script>
+</head>
+<body>
+    <h1>SDP Explainer</h1>
+    <div id="outer">
+        <div id="inner">
+            <textarea
+                id="sdp-input"
+                name="sdp"
+                placeholder="Paste your SDP here ..."
+                spellcheck="false"
+                oninput="onSDPInput()"
+                onclick="onSDPLineClick(event)"></textarea>
+            <div id="overlay"></div>
+        </div>
+        <div id="explanation"></div>
+    </div>
+</body>
+</html>
